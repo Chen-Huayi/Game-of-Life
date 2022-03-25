@@ -1,3 +1,3 @@
 run:
-	clang -Wall main.c -o main
-	./main < input.txt
+	clang -Wall gameOfLife.c -o gameOfLife
+	./gameOfLife < input.txt
