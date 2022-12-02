@@ -12,7 +12,7 @@ In the game of life, for any cell, the rules are as follows:
 + When the current cell is in a dead state, when there are 3 surviving cells around, the cell becomes a viable state. (simulated breeding)
 
 ## Play  
-Here is a sample input file *input.txt* which run command
-```
+Here is a sample input file `input.txt` which run command
+```shell
 make
 ```
