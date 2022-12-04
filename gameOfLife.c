@@ -59,16 +59,16 @@ void checkGenerations();
 
 int main() {
     char c;
+
     do {
         createTable();
         printGeneration(calcGeneNum());
 
         c = getchar();
-        if (c != EOF)
+        if (c != EOF){
             printf("\n%c", c);
-
-    }
-    while  (c != EOF);
+        }
+    } while (c != EOF);
 
     printf("\n\nEnd of processing.\n");
     return 0;
@@ -101,7 +101,7 @@ void createTable(){
         // create the content in the inner area
         for (int r = 1; r < boardRows+1; r++) {
             for (int c = 1; c < boardCols+1; c++) {
-                ch = getchar();         // get next character in standard input
+                ch = getchar();  // get next character in standard input
 
                 // only 2 kinds of characters we can process
                 assert(ch=='X' || ch==' ');
@@ -179,6 +179,7 @@ Cell setCell(int row, int col, Boolean isAlive){
     assert(row<boardRows+1);
     assert(col>0);
     assert(col<boardCols+1);
+
     if(row>0 && row<boardRows+1 && col>0 && col<boardCols+1) {
         newCell.row = row;
         newCell.col = col;
@@ -213,7 +214,7 @@ int countAliveNeighbor(Cell theCell){
         for (int c = theCell.col-1; c <= theCell.col+1; c++) {
             neighborStatus = status[r][c].living;
 
-            if ((r != theCell.row || c != theCell.col) && neighborStatus == true) {     // not count current Cell itself
+            if ((r != theCell.row || c != theCell.col) && neighborStatus == true) {  // not count current Cell itself
                 aliveNeighbors++;
             }
         }
@@ -229,11 +230,11 @@ Boolean calcNextState(Cell curr){
     int livingNeighbors = countAliveNeighbor(curr);
 
     // Game of life rules
-    if (curr.living)
+    if (curr.living){
         nextState = (livingNeighbors==2 || livingNeighbors==3);
-    else
+    }else{
         nextState = (livingNeighbors==3);
-
+    }
     return nextState;
 }
 
@@ -262,7 +263,7 @@ Boolean updateState(){
 
         for (r = 1; r < boardRows+1; r++) {
             for (c = 1; c < boardCols+1; c++) {
-                // In the number'th generation, count the same state
+                // In the number 'th generation, count the same state
                 if (nextGeneration[r][c] == allGeneration[r][c][number]) {
                     sameStateNum++;
                 }
