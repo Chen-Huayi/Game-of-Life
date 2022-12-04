@@ -1,6 +1,6 @@
 run:
-	clang -Wall gameOfLife.c -o gameOfLife
+	clang -Wall GameOfLife.c -o GameOfLife
 	./gameOfLife < input.txt
 
 clean:
-	rm -rf gameOfLife
+	rm -rf GameOfLife
